@@ -63,18 +63,6 @@ class LinkedList {
 		}	 
 	}
 
-	// public void addAtGivenIndex(int index, int newData) {
-	// 	Node newNode = new Node(newData);
-	// 	Node temp = head;
-	// 	int count = 1;
-	// 	while(count != index) {
-	// 		temp = temp.next;
-	// 		count++;
-	// 	}
-	// 	newNode.next = temp.next;
-	// 	temp.next = newNode;
-	// }
-
 	public void printList() {
 		Node temp = head;
 		while(temp != null) {
