@@ -11,7 +11,7 @@
 // 1. Each node requires an extra pointer.
 // 2. The insertion or deletion of a node takes a bit longer(more pointer operation).
 
-class LinkedList {
+public class LinkedList {
 	Node head;
 	Node tail;
 	private int length;
@@ -38,10 +38,11 @@ class LinkedList {
 		}
 	}
 
-	LinkedList() {
+	public LinkedList() {
 		length=1;
 	}
-
+	
+	// Inserting newData at front of the list
 	public void insertAtBegin(int newData) {
 		Node newNode = new Node(newData);
 		if(head==null)
@@ -60,7 +61,8 @@ class LinkedList {
 		// 	head.next.prev = head;
 		// }
 	}
-
+	
+	// Inserting newData at last of the list
 	public void insertAtEnd(int newData) {
 		tail = new Node(newData);
 		if(head==null) 
@@ -74,7 +76,8 @@ class LinkedList {
 		}
 		length++;
 	}
-
+	
+	// Inserting newData at given position of the list
 	public void insertAtMiddle(int newData, int position) {
 		if(position<0)
 			position=0;
@@ -101,6 +104,7 @@ class LinkedList {
 		length++;
 	}
 
+	// Deleting node at front of the list 
 	public void removeAtBegin() {
 		if(head==null) 
 			return;
@@ -116,6 +120,7 @@ class LinkedList {
 		length--;
 	}
 
+	// Deleting node at end of the list 
 	public void removeAtEnd() {
 		if(head==null)
 			return;
@@ -131,6 +136,7 @@ class LinkedList {
 		length--;
 	}
 
+	// Deleting node at given position of the list 
 	public void removeAtMiddle(int position) {
 		if(position<0) 
 			position=0;
@@ -158,6 +164,7 @@ class LinkedList {
 		length--;
 	}
 
+	// Method to print list in backward direction
 	public String reversePrint() {
 		String result="[";
 		result = result + tail.data;
@@ -170,6 +177,7 @@ class LinkedList {
 		return result;
 	}
 
+	// Method to print list in forward direction
 	public String toString() {
 		if(head==null)
 			return "List is empty";
@@ -189,7 +197,8 @@ class LinkedList {
 	public int length() {
 		return length;
 	}
-
+	
+	// main() method
 	public static void main(String[] args) {
 		LinkedList l = new LinkedList();
 		l.head = new Node(1);
