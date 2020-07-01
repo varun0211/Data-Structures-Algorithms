@@ -199,12 +199,16 @@ class LinkedList {
 		l.insertAtMiddle(2,2);
 		l.insertAtMiddle(10,3);
 		
-		System.out.println(l);
-		System.out.println("LinkedList Length: "+l.length()); 
+		System.out.println(l); // [0, 1, 2, 10, 3, 99]
+		System.out.println("LinkedList Length: "+l.length()); // LinkedList Length: 6 
 
-		// l.removeAtMiddle(1);
-		
-		System.out.println(l.reversePrint());
-		System.out.println("LinkedList Length: "+l.length()); 
+		System.out.println(l.reversePrint()); // [99, 3, 10, 2, 1, 0]
+
+		l.removeAtBegin(); // 0
+		l.removeAtEnd(); // 99
+		l.removeAtMiddle(2); // 10
+
+		System.out.println(l); // [1, 2, 3]
+		System.out.println("LinkedList Length: "+l.length()); // LinkedList Length: 3
 	}
 }
