@@ -1,15 +1,17 @@
-// Doubly Linked List(DLL):
+/** 
+Doubly Linked List(DLL):
 
-// 1. DLL is a Linear data structure.
-// 2. DLL is same as SLL with extra pointer, which is used to point previous node. hence DLL contains 3 fields(prev, data, next).
+1. DLL is a Linear data structure.
+2. DLL is same as SLL with extra pointer, which is used to point previous node. hence DLL contains 3 fields(prev, data, next).
 
-// Advantage over SLL:
-// 1. DLL can traverse in both the direction i.e, forward and backward direction whereas in SLL forward is only possible.
-// 2. Deletion operation is more efficient i.e, while deleting the node, pointer to its previous node is not required whereas in SLL pointer to its previous node is required.
+Advantage over SLL:
+1. DLL can traverse in both the direction i.e, forward and backward direction whereas in SLL forward is only possible.
+2. Deletion operation is more efficient i.e, while deleting the node, pointer to its previous node is not required whereas in SLL pointer to its previous node is required.
 
-// Disadvantages of DLL:
-// 1. Each node requires an extra pointer.
-// 2. The insertion or deletion of a node takes a bit longer(more pointer operation).
+Disadvantages of DLL:
+1. Each node requires an extra pointer.
+2. The insertion or deletion of a node takes a bit longer(more pointer operation).
+*/
 
 public class LinkedList {
 	Node head;
