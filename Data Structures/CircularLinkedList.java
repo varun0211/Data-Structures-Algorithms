@@ -130,6 +130,11 @@ class LinkedList {
 			length--;
 		}
 	}
+	
+	public void deleteList() {
+		tail=null;
+		length=0;
+	}
 
 	public String toString() {
 		String result="[";
