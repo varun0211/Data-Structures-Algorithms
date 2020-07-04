@@ -110,7 +110,7 @@ class LinkedList {
 		return;
 	}
 
-	public void removeAtPos(int position) {
+	public void removeAtMiddle(int position) {
 		if(position<0)
 			position=0;
 		if(position>=length)
@@ -211,11 +211,13 @@ class LinkedList {
 		l.insertAtEnd(6);
 		l.insertAtMiddle(99,4);
 		l.insertAtMiddle(100,10);
-// Printing list using printList() method.
+		
+		// Printing list using printList() method.
 		System.out.println(l.printList());
 		// l.removeAtPos(1000);
 		// l.printList();
-// Printing list using toString() method.
+		
+		// Printing list using toString() method.
 		System.out.println(l);
 		System.out.println(l.length());
 	}
