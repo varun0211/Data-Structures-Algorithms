@@ -165,6 +165,11 @@ public class LinkedList {
 		}
 		length--;
 	}
+	
+	public void deleteList() {
+		head=null;
+		length=0;
+	}
 
 	// Method to print list in backward direction
 	public String reversePrint() {
@@ -181,7 +186,7 @@ public class LinkedList {
 
 	// Method to print list in forward direction
 	public String toString() {
-		if(head==null)
+		if(head==null || length==0)
 			return "List is empty";
 		else {
 			String result="[";
