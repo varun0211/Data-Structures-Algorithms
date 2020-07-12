@@ -39,7 +39,7 @@ public class CircularArrayQueue {
          throw new Exception("Queue Underflow");
       else {
          size--;
-         int data = queueRep[front];
+         int data = queueRep[(front%capacity)];
          front = (front+1)%capacity;
          return data;
       }
@@ -65,8 +65,6 @@ public class CircularArrayQueue {
       System.out.println(aq); // [10,20,30,40,50,60]
 
       aq.deQueue(); // 10
-      System.out.println(aq); // [20,30,40,50,60]
-      
       aq.clear(); 
       System.out.println(aq); // []
 
