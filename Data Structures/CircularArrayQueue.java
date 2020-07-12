@@ -60,15 +60,14 @@ public class CircularArrayQueue {
    public static void main(String[] args) throws Exception {
       CircularArrayQueue aq = new CircularArrayQueue(8);
 
-      aq.enQueue(10);
-      aq.enQueue(20);
-      aq.enQueue(30);
-      aq.enQueue(40);
-      aq.enQueue(50);
-      aq.enQueue(60);
+      for(int i=10; i<70; i+=10) {
+         aq.enQueue(i);
+      }
       System.out.println(aq); // [10,20,30,40,50,60]
 
       aq.deQueue(); // 10
+      System.out.println(aq); // [20,30,40,50,60]
+      
       aq.clear(); 
       System.out.println(aq); // []
 
