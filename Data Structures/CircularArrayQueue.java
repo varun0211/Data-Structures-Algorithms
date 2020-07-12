@@ -1,12 +1,14 @@
 public class CircularArrayQueue {
-   private static final int CAPACITY=4;
-   private int[] queueRep;
-   private int size, front, rear;
+   public static final int MINCAPACITY=4;
+   protected int capacity;
+   protected int[] queueRep;
+   protected int size, front, rear;
 
    public CircularArrayQueue() {
-      this(CAPACITY);
-   }
+      this(MINCAPACITY);
+   } 
    public CircularArrayQueue(int cap) {
+      this.capacity = cap;
       queueRep = new int[cap];
       this.size=0; this.front=0; this.rear=0;
    }
@@ -16,64 +18,62 @@ public class CircularArrayQueue {
    }
 
    public boolean isFull() {
-      return (size==CAPACITY);
-   }
-
-   public int size() {
-      return size;
+      return (size==capacity);
    }
 
    public void clear() {
-      size=0;
+      size=0; front=0; rear=0;
    }
 
    public void enQueue(int data) throws Exception {
-      if(size==CAPACITY) {
+      if(size==capacity)
          throw new Exception("Queue Overflow");
-      } else {
+      else {
          size++;
          queueRep[rear] = data;
-         rear = (rear+1)%CAPACITY;
+         rear = (rear+1)%capacity;
       }
    }
 
    public int deQueue() throws Exception {
-      if(size==0) {
+      if(size==0)
          throw new Exception("Queue Underflow");
-      } else {
+      else {
          size--;
-         int data = queueRep[(front+1)%CAPACITY];
-         queueRep[front] = 0;
-         front = (front+1)%CAPACITY;
+         int data = queueRep[front];
+         front = (front+1)%capacity;
          return data;
       }
    }
 
    public String toString() {
-      String result="[";
+      String result = "[";
       if(size==0)
          return result+"]";
-      for(int i=0; i<size; i++) {
-         result += Integer.toString(queueRep[(front+i)%CAPACITY]);
-         if(i<size-1) 
-            result += ", ";
+      result += queueRep[front];
+      for(int i=1; i<size; i++) {
+         result += ", " + queueRep[(front+i)%capacity];
       }
       return result+"]";
    }
 
    public static void main(String[] args) throws Exception {
-      CircularArrayQueue aq = new CircularArrayQueue();
+      CircularArrayQueue aq = new CircularArrayQueue(8);
 
-      aq.enQueue(1);
-      aq.enQueue(2);
-      aq.enQueue(3);
-      aq.enQueue(4);
-      System.out.println(aq); // [1, 2, 3, 4]
+      aq.enQueue(10);
+      aq.enQueue(20);
+      aq.enQueue(30);
+      aq.enQueue(40);
+      aq.enQueue(50);
+      aq.enQueue(60);
+      System.out.println(aq); // [10,20,30,40,50,60]
 
-      aq.deQueue(); // 4
-      System.out.println(aq); // [1, 2, 3]
+      aq.deQueue(); // 10
+      aq.clear(); 
+      System.out.println(aq); // []
 
-      aq.clear();
-      System.out.println(aq); // []   
+      aq.enQueue(99); 
+      aq.enQueue(999);
+      System.out.println(aq); // [99,999]
    }
 }
