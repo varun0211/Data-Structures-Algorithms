@@ -1,8 +1,7 @@
 public class CircularArrayQueue {
    public static final int MINCAPACITY=4;
-   protected int capacity;
    protected int[] queueRep;
-   protected int size, front, rear;
+   protected int size, front, rear, capacity;
 
    public CircularArrayQueue() {
       this(MINCAPACITY);
