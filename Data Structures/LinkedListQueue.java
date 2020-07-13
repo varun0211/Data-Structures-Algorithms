@@ -1,5 +1,5 @@
 public class LinkedListQueue {
-   private int size=0;
+   private int length=0;
    Node front=null, rear=null;
 
    static class Node {
@@ -17,11 +17,15 @@ public class LinkedListQueue {
    }
 
    public boolean isEmpty() {
-      return (size==0);
+      return (length==0);
+   }
+
+   public int size() {
+      return length;
    }
 
    public void clear() {
-      size=0; front=null; rear=null;
+      length=0; front=null; rear=null;
    }
 
    public void enQueue(int newData) {
@@ -33,17 +37,19 @@ public class LinkedListQueue {
          rear.next = newNode;
          rear = newNode;
       }
-      size++;
+      length++;
    }
 
    public Node deQueue() throws Exception {
-      if(front==null)
+      if(isEmpty()) 
          throw new Exception("Queue Underflow");
       else {
          Node temp = front;
          front = temp.next;
          temp.next = null;
-         size--;
+         length--;
+         if(isEmpty())
+            rear = null;
          return temp;
       }
    }
@@ -67,14 +73,14 @@ public class LinkedListQueue {
       for(int i=10; i<=50; i+=10) 
          lq.enQueue(i);
       System.out.println(lq); // [10,20,30,40,50]
-      System.out.println("size: "+lq.size); // size: 5 
+      System.out.println("size: "+lq.length); // size: 5 
 
       System.out.println();
 
-      for(int i=0; i<3; i++)
+      for(int i=0; i<5; i++)
          System.out.print(lq.deQueue()+" ");
       System.out.println();
       System.out.println(lq); // [40,50]
-      System.out.println("size: "+lq.size); // size: 2
+      System.out.println("size: "+lq.length); // size: 2
    }
 }
