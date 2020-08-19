@@ -41,7 +41,30 @@ Note: Recursive insertion should be implemented(not yet tried)
 			}
 		}
 	}
+// Recursive delete implementation
+	public void delete(int key) {
+		root = deleteKey(root, key);
+	}
 
+	public Node deleteKey(Node root, int key) {
+		if(root==null) 
+			return root;
+		if(key < root.data)
+			root.left = deleteKey(root.left, key);
+		else if(key > root.data)
+			root.right = deleteKey(root.right, key);
+		else {
+			if(root.left == null)
+				return root.right;
+			if(root.right == null)
+				return root.left;
+			root.data = minNode(root.right);
+			root.right = deleteKey(root.right, root.data);
+		}
+		return root;
+	}
+
+// Iterative delete implementation
 	public void delete(int key) {
 		boolean flag = false;
 		Node prev=null, curr=root;
