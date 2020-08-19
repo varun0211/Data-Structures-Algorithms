@@ -1,4 +1,4 @@
-class Test {
+class BinarySearchTree {
 	Node root;
 
 	static class Node {
@@ -146,26 +146,26 @@ Note: Recursive insertion should be implemented(not yet tried)
 	}
 
 	public static void main(String[] args) {
-		Test t = new Test();
+		BinarySearchTree tree = new BinarySearchTree();
 
-		t.insert(50); 
-        t.insert(30); 
-        t.insert(20); 
-        t.insert(40); 
-        t.insert(70); 
-        t.insert(60); 
-        t.insert(80);
+		tree.insert(50); 
+        tree.insert(30); 
+        tree.insert(20); 
+        tree.insert(40); 
+        tree.insert(70); 
+        tree.insert(60); 
+        tree.insert(80);
 
-        // t.inOrderTraversal(t.root); // [20,30,40,50,60,70,80]
-        t.inOrder(); // [20,30,40,50,60,70,80]
+        // tree.inOrderTraversal(tree.root); // [20,30,40,50,60,70,80]
+        tree.inOrder(); // [20,30,40,50,60,70,80]
 
         System.out.println();
-        System.out.println(t.search(t.root,40)); // true
+        System.out.println(tree.search(tree.root,40)); // true
 
-        System.out.println("Min Node: "+t.minNode(t.root)); // 20
-        System.out.println("Max Node: "+t.maxNode(t.root)); // 80
+        System.out.println("Min Node: "+tree.minNode(tree.root)); // 20
+        System.out.println("Max Node: "+tree.maxNode(tree.root)); // 80
 
-        t.delete(50);
-        t.inOrder(); // [20,30,40,60,70,80]
+        tree.delete(50);
+        tree.inOrder(); // [20,30,40,60,70,80]
 	}
 }
