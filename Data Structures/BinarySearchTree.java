@@ -1,11 +1,11 @@
-class BinarySearchTree {
+class Test {
 	Node root;
 
 	static class Node {
 		int data;
 		Node left, right;
 
-		public Node(int data) {
+		Node(int data) {
 			this.data = data;
 			left = right = null;
 		}
@@ -14,7 +14,9 @@ class BinarySearchTree {
 			return data+"";
 		}
 	}
-
+/**
+Note: Recursive insertion should be implemented(not yet tried)
+*/
 	public void insert(int newData) {
 		if(root==null) {
 			root = new Node(newData);
@@ -22,15 +24,15 @@ class BinarySearchTree {
 		}
 		Node curr = root;
 		while(curr!=null) {
-			if(curr.data>=newData) {
-				if(curr.left!=null)
+			if(curr.data > newData) {
+				if(curr.left != null) 
 					curr = curr.left;
 				else {
 					curr.left = new Node(newData);
 					return;
 				}
 			} else {
-				if(curr.right!=null)
+				if(curr.right != null) 
 					curr = curr.right;
 				else {
 					curr.right = new Node(newData);
@@ -126,7 +128,7 @@ class BinarySearchTree {
 	}
 
 	public void inOrderTraversal(Node root) {
-		if(root!=null) {
+		if(root != null) {
 			inOrderTraversal(root.left);
 			System.out.print(root.data+" ");
 			inOrderTraversal(root.right);
@@ -136,15 +138,15 @@ class BinarySearchTree {
 	public boolean search(Node root,int key) {
 		if(root==null)
 			return false;
-		else if(root.data==key)
+		else if(root.data == key)
 			return true;
-		else if(root.data>=key)
+		else if(key<=root.data)
 			return search(root.left, key);
 		return search(root.right, key);
 	}
 
 	public static void main(String[] args) {
-		BinarySearchTree t = new BinarySearchTree();
+		Test t = new Test();
 
 		t.insert(50); 
         t.insert(30); 
@@ -153,13 +155,16 @@ class BinarySearchTree {
         t.insert(70); 
         t.insert(60); 
         t.insert(80);
-        t.insert(35);
-        t.insert(45);
 
         // t.inOrderTraversal(t.root); // [20,30,40,50,60,70,80]
         t.inOrder(); // [20,30,40,50,60,70,80]
 
         System.out.println();
+        System.out.println(t.search(t.root,40)); // true
+
+        System.out.println("Min Node: "+t.minNode(t.root)); // 20
+        System.out.println("Max Node: "+t.maxNode(t.root)); // 80
+
         t.delete(50);
         t.inOrder(); // [20,30,40,60,70,80]
 	}
