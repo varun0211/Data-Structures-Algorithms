@@ -42,7 +42,7 @@ Note: Recursive insertion should be implemented(not yet tried)
 			}
 		}
 	}
-// Recursive Delete Implementation
+// Recursive Delete implementation
 	public void delete(int key) {
 		root = deleteKey(root, key);
 	}
@@ -65,7 +65,7 @@ Note: Recursive insertion should be implemented(not yet tried)
 		return root;
 	}
 
-// Iterative Delete Implementation
+// Iterative Delete implementation
 	public void delete(int key) {
 		Node prev=root, curr=root;
 		if(root==null)
@@ -83,8 +83,7 @@ Note: Recursive insertion should be implemented(not yet tried)
 			if(curr.left==null) {
 				prev.left = curr.right;
 				return;
-			}
-			else if(curr.right==null) {
+			} else if(curr.right==null) {
 				prev.left = curr.left;
 				return;
 			}
@@ -92,8 +91,7 @@ Note: Recursive insertion should be implemented(not yet tried)
 			if(curr.left==null) {
 				prev.right = curr.right;
 				return;
-			}
-			else if(curr.right==null) {
+			} else if(curr.right==null) {
 				prev.right = curr.left;
 				return;
 			}
@@ -154,30 +152,30 @@ Note: Recursive insertion should be implemented(not yet tried)
 	}
 
 	public static void main(String[] args) {
-                BinarySearchTree tree = new BinarySearchTree();
+		BinarySearchTree tree = new BinarySearchTree();
 
-                tree.insert(50); 
-                tree.insert(30); 
-                tree.insert(20); 
-                tree.insert(40); 
-                tree.insert(70); 
-                tree.insert(60); 
-                tree.insert(80);
-                tree.insert(35);
-                tree.insert(45);
-                tree.insert(65);
+		tree.insert(50); 
+        tree.insert(30); 
+        tree.insert(20); 
+        tree.insert(40); 
+        tree.insert(70); 
+        tree.insert(60); 
+        tree.insert(80);
+        tree.insert(35);
+        tree.insert(45);
+        tree.insert(65);
 
-                // tree.inOrderTraversal(tree.root); // [20, 30, 35, 40, 45, 50, 60, 65, 70, 80]
-                tree.inOrder(); // [20, 30, 35, 40, 45, 50, 60, 65, 70, 80]
+        // tree.inOrderTraversal(tree.root); // [20, 30, 35, 40, 45, 50, 60, 65, 70, 80]
+        tree.inOrder(); // [20, 30, 35, 40, 45, 50, 60, 65, 70, 80]
 
-                System.out.println();
-                System.out.println(tree.search(tree.root,40)); // true
+        System.out.println();
+        System.out.println(tree.search(tree.root,40)); // true
 
-                System.out.println("Min Node: "+tree.minNode(tree.root)); // 20
-                System.out.println("Max Node: "+tree.maxNode(tree.root)); // 80
+        System.out.println("Min Node: "+tree.minNode(tree.root)); // 20
+        System.out.println("Max Node: "+tree.maxNode(tree.root)); // 80
 
-                tree.delete(40);
-                tree.inOrder(); // [20, 30, 35, 45, 50, 60, 65, 70, 80]
+        tree.delete(40);
+        tree.inOrder(); // [20, 30, 35, 45, 50, 60, 65, 70, 80]
 
 	}
 }
